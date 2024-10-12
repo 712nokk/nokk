@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>han_denovv</title>
+    <style>
+        body {
+            background-color: black; /* Черный фон */
+            color: #00cc00; /* Тусклее зеленый цвет */
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 48px;
+            margin-top: 20px;
+            text-shadow: 0 0 5px #00cc00, 0 0 10px #00cc00;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(12) forwards, blink 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 12ch; } /* Количество символов в заголовке */
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        a {
+            color: #00cc00; /* Тусклее зеленый цвет */
+            text-decoration: none;
+            font-size: 24px;
+            display: block;
+            margin: 20px 0;
+            text-shadow: 0 0 5px #00cc00, 0 0 10px #00cc00;
+        }
+        a:hover {
+            text-shadow: 0 0 20px #00cc00, 0 0 30px #00cc00;
+        }
+        #marquee {
+            color: #ff69b4; /* Розовый цвет для бегущей строки */
+            font-size: 18px;
+            position: absolute;
+            bottom: 10px;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <audio controls>
+        <source src="ваша_песня.mp3" type="audio/mpeg"> <!-- Укажите ссылку на ваш аудиофайл -->
+        Ваш браузер не поддерживает аудиоплеер.
+    </audio>
+
+    <h1>han_denovv</h1>
+    <a href="https://t.me/ваш_телеграм" target="_blank">Telegram</a>
+    <a href="https://instagram.com/ваш_инстаграм" target="_blank">Instagram</a>
+
+    <div id="marquee"></div>
+
+    <script>
+        // Массив с высказываниями философов
+        const quotes = [
+            "Я мыслю, следовательно, я существую. - Рене Декарт",
+            "Знание — сила. - Фрэнсис Бэкон",
+            "Мы — то, что мы думаем. - Будда",
+            "Только одна вещь делает мечту невозможной — страх неудачи. - Пауло Коэльо",
+            "Человек есть мера всех вещей. - Протагор",
+            "Счастье — это не цель, а побочный продукт. - Элеонор Рузвельт",
+            "Умение управлять собой — это высшая форма свободы. - Сенека",
+            "Время — это деньги. - Бенджамин Франклин",
+            "Познание начинается с удивления. - Сократ",
+            "Я знаю, что ничего не знаю. - Сократ"
+            // Добавьте больше цитат, если необходимо
+        ];
+
+        // Функция для генерации случайного высказывания
+        function getRandomQuote() {
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        // Установка бегущей строки с высказываниями
+        const marquee = document.getElementById('marquee');
+        setInterval(() => {
+            marquee.textContent = getRandomQuote();
+        }, 5000); // Каждые 5 секунд обновляется цитата
+
+        // Устанавливаем начальное значение
+        marquee.textContent = getRandomQuote();
+    </script>
+</body>
+</html>
